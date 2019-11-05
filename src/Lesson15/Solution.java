@@ -69,14 +69,15 @@ public class Solution {
 
         List<Contact> emptyContactList = new ArrayList<>();
 
-        try (ObjectOutputStream streamOut = new ObjectOutputStream(new FileOutputStream("data3.bin"));
-             ObjectInputStream streamIn = new ObjectInputStream(new FileInputStream("data3.bin"))){
+        try (FileInputStream fileInputStream = new FileInputStream("data3.bin");
+                ObjectOutputStream streamOut = new ObjectOutputStream(new FileOutputStream("data3.bin"));
+             ObjectInputStream streamIn = new ObjectInputStream(fileInputStream)){
 
             for (Contact contact: contactsList) {
                 streamOut.writeObject(contact);
             }
 
-            for (int i = 0; i < contactsList.size(); i++){
+            while (fileInputStream.available() > 0){
                 emptyContactList.add((Contact)streamIn.readObject());
             }
 
