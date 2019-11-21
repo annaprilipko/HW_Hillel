@@ -1,7 +1,5 @@
 package Lesson3;
 
-//import Lesson3.Schedule.DayOfWeek;
-//import Lesson3.Schedule.Lesson;
 import Lesson3.Schedule.ScheduleRow;
 import Lesson3.people.Student;
 import Lesson3.people.StudentFactory;
